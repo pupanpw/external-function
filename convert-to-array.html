@@ -218,12 +218,14 @@
         Clear
       </button>
 
-      <div class="mt-3">
-        <h2>Array Result (Double Quotes):</h2>
-        <pre id="arrayResultDouble"></pre>
-        <h2>Array Result (Single Quotes):</h2>
-        <pre id="arrayResultSingle"></pre>
-      </div>
+          <div class="mt-3">
+      <h2>Array Result (Single Quotes):</h2>
+      <pre id="arrayResultSingle"></pre>
+      <div id="arrayLengthSingle"></div>
+      <br>
+      <h2>Array Result (Double Quotes):</h2>
+      <pre id="arrayResultDouble"></pre>
+      <div id="arrayLengthDouble"></div>
     </div>
 
     <script
@@ -265,6 +267,12 @@
 
         const arrayResultSingle = document.getElementById("arrayResultSingle");
         arrayResultSingle.textContent = `[\n${formatArray(textArraySingle)}\n]`;
+
+        const arrayLengthDouble = document.getElementById("arrayLengthDouble");
+        const arrayLengthSingle = document.getElementById("arrayLengthSingle");
+
+        arrayLengthDouble.textContent = `Array Length (Double Quotes): ${textArray.length}`;
+        arrayLengthSingle.textContent = `Array Length (Single Quotes): ${textArraySingle.length}`;
 
         document.getElementById("copyButtonDouble").disabled = false;
         document.getElementById("copyButtonSingle").disabled = false;

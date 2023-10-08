@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Menu with Sidebar</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlK6vbQQh4W8jOt6vLEHfe/JQGiRRSQQjJx6z5l5Jw5W3mGN6f5P5Irakrtbjo"
+      crossorigin="anonymous"
+    />
+    <style>
+      .sidebar {
+        height: 100%;
+        width: 250px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        background-color: #333;
+        padding-top: 20px;
+      }
+
+      .sidebar a {
+        padding: 15px;
+        text-align: center;
+        text-decoration: none;
+        font-size: 18px;
+        color: white;
+        display: block;
+      }
+
+      .sidebar a:hover {
+        background-color: #555;
+      }
+
+      .content {
+        margin-left: 260px;
+        padding: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2 class="text-center text-white">Menu</h2>
+      <ul class="list-unstyled">
+        <li>
+          <a href="list-difference.html" class="text-white">list-difference</a>
+        </li>
+        <li>
+          <a href="convert-to-array.html" class="text-white"
+            >Convert To Array</a
+          >
+        </li>
+      </ul>
+    </div>
+
+    <div class="content"></div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-CuYeq5d/jtc+AE6jE0DDbULpD4y8K3KgE+kLd5v2trb5L9DU6HRf4vvcut5Bk2yGp"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-y4GTf7l5h6i9GaM+xFqz4zPPD0jDrD1Gc6f5kt7Wokq8oI+2jg+IZI7GwoG6Oq30b"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

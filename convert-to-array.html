@@ -14,26 +14,22 @@
       body {
         background-color: #f0f0f0;
       }
-
       .container {
         background-color: #fff;
         padding: 20px;
         border-radius: 10px;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
       }
-
       h1 {
         font-size: 32px;
         color: #333;
         text-align: center;
         margin-bottom: 20px;
       }
-
       label {
         font-size: 18px;
         color: #333;
       }
-
       #textInput {
         resize: vertical;
         font-size: 16px;
@@ -42,7 +38,6 @@
         border: 1px solid #ccc;
         border-radius: 5px;
       }
-
       .btn-primary {
         background-color: #007bff;
         color: #fff;
@@ -51,11 +46,9 @@
         padding: 10px 20px;
         font-size: 16px;
       }
-
       .btn-primary:hover {
         background-color: #0056b3;
       }
-
       #copyButtonDouble {
         margin-top: 10px;
         background-color: #28a745;
@@ -65,7 +58,6 @@
         padding: 10px 20px;
         font-size: 16px;
       }
-
       #copyButtonSingle {
         margin-top: 10px;
         background-color: #ffc107;
@@ -75,20 +67,16 @@
         padding: 10px 20px;
         font-size: 16px;
       }
-
       #copyButtonDouble:disabled,
       #copyButtonSingle:disabled {
         background-color: #6c757d;
       }
-
       #copyButtonDouble:hover {
         background-color: #218838;
       }
-
       #copyButtonSingle:hover {
         background-color: #d39e00;
       }
-
       #clearButton {
         margin-top: 10px;
         background-color: #dc3545;
@@ -98,11 +86,9 @@
         padding: 10px 20px;
         font-size: 16px;
       }
-
       #clearButton:hover {
         background-color: #c82333;
       }
-
       #arrayResultDouble,
       #arrayResultSingle {
         font-size: 16px;
@@ -115,16 +101,15 @@
       }
       #removeSingleQuotesButton {
         margin-top: 10px;
-        background-color: #ffc107;
+        background-color: #007bff;
         color: #fff;
         border: none;
         border-radius: 5px;
         padding: 10px 20px;
         font-size: 16px;
       }
-
       #removeSingleQuotesButton:hover {
-        background-color: #d39e00;
+        background-color: #0056b3;
       }
       #removeDoubleQuotesButton {
         margin-top: 10px;
@@ -135,11 +120,9 @@
         padding: 10px 20px;
         font-size: 16px;
       }
-
       #removeDoubleQuotesButton:hover {
         background-color: #0056b3;
       }
-
       #removeCommasButton {
         margin-top: 10px;
         background-color: #007bff;
@@ -149,7 +132,6 @@
         padding: 10px 20px;
         font-size: 16px;
       }
-
       #removeCommasButton:hover {
         background-color: #0056b3;
       }
@@ -175,7 +157,6 @@
       >
         Remove Single Quotes
       </button>
-
       <button
         class="btn btn-secondary mt-3"
         id="removeDoubleQuotesButton"
@@ -183,7 +164,6 @@
       >
         Remove Double Quotes
       </button>
-
       <button
         class="btn btn-secondary mt-3"
         id="removeCommasButton"
@@ -218,14 +198,15 @@
         Clear
       </button>
 
-          <div class="mt-3">
-      <h2>Array Result (Single Quotes):</h2>
-      <pre id="arrayResultSingle"></pre>
-      <div id="arrayLengthSingle"></div>
-      <br>
-      <h2>Array Result (Double Quotes):</h2>
-      <pre id="arrayResultDouble"></pre>
-      <div id="arrayLengthDouble"></div>
+      <div class="mt-3">
+        <h2>Array Result (Single Quotes):</h2>
+        <pre id="arrayResultSingle"></pre>
+        <div id="arrayLengthSingle"></div>
+        <br />
+        <h2>Array Result (Double Quotes):</h2>
+        <pre id="arrayResultDouble"></pre>
+        <div id="arrayLengthDouble"></div>
+      </div>
     </div>
 
     <script
@@ -303,6 +284,8 @@
         document.getElementById("copyButtonDouble").disabled = true;
         document.getElementById("copyButtonSingle").disabled = true;
         document.getElementById("removeSingleQuotesButton").disabled = true;
+        document.getElementById("arrayLengthDouble").textContent = "";
+        document.getElementById("arrayLengthSingle").textContent = "";
       }
 
       function removeSingleQuotes() {

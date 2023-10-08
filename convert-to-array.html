@@ -89,6 +89,20 @@
         background-color: #d39e00;
       }
 
+      #clearButton {
+        margin-top: 10px;
+        background-color: #dc3545;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      #clearButton:hover {
+        background-color: #c82333;
+      }
+
       #arrayResultDouble,
       #arrayResultSingle {
         font-size: 16px;
@@ -132,6 +146,13 @@
         disabled
       >
         Copy Single Quotes
+      </button>
+      <button
+        class="btn btn-danger mt-3"
+        id="clearButton"
+        onclick="clearInputAndOutput()"
+      >
+        Clear
       </button>
       <div class="mt-3">
         <h2>Array Result (Double Quotes):</h2>
@@ -193,6 +214,19 @@
         document.execCommand("copy");
         document.body.removeChild(textArea);
         alert("Text copied to clipboard!");
+      }
+
+      function clearInputAndOutput() {
+        document.getElementById("textInput").value = "";
+        document.getElementById("arrayResultDouble").textContent = "";
+        document.getElementById("arrayResultSingle").textContent = "";
+        isCheckEmptyInput();
+        clearCopyButtonsData();
+      }
+
+      function clearCopyButtonsData() {
+        document.getElementById("copyButtonDouble").disabled = true;
+        document.getElementById("copyButtonSingle").disabled = true;
       }
     </script>
   </body>

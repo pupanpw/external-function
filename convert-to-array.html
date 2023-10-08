@@ -113,6 +113,46 @@
         margin-top: 20px;
         white-space: pre-wrap;
       }
+      #removeSingleQuotesButton {
+        margin-top: 10px;
+        background-color: #ffc107;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      #removeSingleQuotesButton:hover {
+        background-color: #d39e00;
+      }
+      #removeDoubleQuotesButton {
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      #removeDoubleQuotesButton:hover {
+        background-color: #0056b3;
+      }
+
+      #removeCommasButton {
+        margin-top: 10px;
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+      }
+
+      #removeCommasButton:hover {
+        background-color: #0056b3;
+      }
     </style>
   </head>
   <body>
@@ -128,6 +168,29 @@
           oninput="isCheckEmptyInput()"
         ></textarea>
       </div>
+      <button
+        class="btn btn-warning mt-3"
+        id="removeSingleQuotesButton"
+        onclick="removeSingleQuotes()"
+      >
+        Remove Single Quotes
+      </button>
+
+      <button
+        class="btn btn-secondary mt-3"
+        id="removeDoubleQuotesButton"
+        onclick="removeDoubleQuotes()"
+      >
+        Remove Double Quotes
+      </button>
+
+      <button
+        class="btn btn-secondary mt-3"
+        id="removeCommasButton"
+        onclick="removeCommas()"
+      >
+        Remove Commas
+      </button>
       <button class="btn btn-primary mt-3" onclick="convertToArray()" disabled>
         Convert to Array
       </button>
@@ -154,6 +217,7 @@
       >
         Clear
       </button>
+
       <div class="mt-3">
         <h2>Array Result (Double Quotes):</h2>
         <pre id="arrayResultDouble"></pre>
@@ -186,22 +250,25 @@
 
       isCheckEmptyInput();
 
+      function formatArray(array) {
+        return array.map((item) => `  "${item.trim()}"`).join(",\n");
+      }
+
       function convertToArray() {
         const textInput = document.getElementById("textInput").value;
-        const textArray = textInput
-          .split("\n")
-          .map((item) => `"${item.trim()}"`);
-        const arrayResultDouble = document.getElementById("arrayResultDouble");
-        arrayResultDouble.textContent = `[${textArray.join(", ")}]`;
+        const textArray = textInput.split("\n").filter(Boolean);
 
-        const textArraySingle = textInput
-          .split("\n")
-          .map((item) => `'${item.trim()}'`);
+        const arrayResultDouble = document.getElementById("arrayResultDouble");
+        arrayResultDouble.textContent = `[\n${formatArray(textArray)}\n]`;
+
+        const textArraySingle = textInput.split("\n").filter(Boolean);
+
         const arrayResultSingle = document.getElementById("arrayResultSingle");
-        arrayResultSingle.textContent = `[${textArraySingle.join(", ")}]`;
+        arrayResultSingle.textContent = `[\n${formatArray(textArraySingle)}\n]`;
 
         document.getElementById("copyButtonDouble").disabled = false;
         document.getElementById("copyButtonSingle").disabled = false;
+        document.getElementById("removeSingleQuotesButton").disabled = false;
       }
 
       function copyToClipboard(id) {
@@ -227,6 +294,22 @@
       function clearCopyButtonsData() {
         document.getElementById("copyButtonDouble").disabled = true;
         document.getElementById("copyButtonSingle").disabled = true;
+        document.getElementById("removeSingleQuotesButton").disabled = true;
+      }
+
+      function removeSingleQuotes() {
+        const textInput = document.getElementById("textInput");
+        textInput.value = textInput.value.replace(/'/g, "");
+      }
+
+      function removeDoubleQuotes() {
+        const textInput = document.getElementById("textInput");
+        textInput.value = textInput.value.replace(/"/g, "");
+      }
+
+      function removeCommas() {
+        const textInput = document.getElementById("textInput");
+        textInput.value = textInput.value.replace(/,/g, "");
       }
     </script>
   </body>
